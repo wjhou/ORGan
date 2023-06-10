@@ -52,7 +52,7 @@ chmod +x ./script/run_iu_xray.sh
 If you use the <span style="font-variant:small-caps;">ORGan</span>, please cite our paper:
 ```bibtex
 @inproceedings{hou2023organ,
-	title        = {ORGan: Observation-Guided Radiology Report Generation via Tree Reasoning},
+	title        = {ORGAN: Observation-Guided Radiology Report Generation via Tree Reasoning},
 	author       = {Hou, Wenjun and Xu, Kaishuai and Cheng, Yi and Li, Wenjie and Liu, Jiang}, 
 	booktitle    = {Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics},
 	year         = {2023},
