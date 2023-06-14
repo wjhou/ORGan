@@ -1,6 +1,6 @@
 # <span style="font-variant:small-caps;">ORGAN</span>: Observation-Guided Radiology Report Generation via Tree Reasoning
 
-This repository is the implementation of *ORGAN: Observation-Guided Radiology Report Generation via Tree Reasoning*.
+This repository is the implementation of [*ORGAN: Observation-Guided Radiology Report Generation via Tree Reasoning*](https://arxiv.org/abs/2306.06466).
 Before running the code, please install the prerequisite libraries, and follow Step 0, Step 1, and Step 2 to replicate the experiments.
 
 ## Overview
