@@ -50,6 +50,7 @@ python3 -u ./src/run_ende.py \
     --trr $trr \
     --topk $topk \
     --outline_level $outline_level \
+    --beta $beta \
     --per_device_train_batch_size $per_device_train_batch_size \
     --per_device_eval_batch_size $per_device_eval_batch_size \
     --gradient_accumulation_steps $gradient_accumulation_steps \
