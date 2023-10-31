@@ -8,7 +8,7 @@ This paper explores the task of radiology report generation, which aims at gener
 ![Alt text](figure/overview.png?raw=true "Title")
 
 ## Update
-- Pretained checkpoint for the IU X-ray dataset is available at [Google Drive](https://drive.google.com/file/d/1BnnnwFf3TRba-frOMY8xQEz6YIFmCI-s/view?usp=sharing)
+- [2023/10/31] Pretained checkpoint for the IU X-ray dataset is available at [Google Drive](https://drive.google.com/file/d/1BnnnwFf3TRba-frOMY8xQEz6YIFmCI-s/view?usp=sharing)
 
 ## Requirements
 - `torch==1.9.1`
