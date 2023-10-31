@@ -7,6 +7,9 @@ Before running the code, please install the prerequisite libraries, and follow S
 This paper explores the task of radiology report generation, which aims at generating free-text descriptions for a set of radiographs. One significant challenge of this task is how to correctly maintain the consistency between the images and the lengthy report. Previous research explored solving this issue through planning-based methods, which generate reports only based on high-level plans. However, these plans usually only contain the major observations from the radiographs (e.g., lung opacity), lacking much necessary information, such as the observation characteristics and preliminary clinical diagnoses. To address this problem, the system should also take the image information into account together with the textual plan and perform stronger reasoning during the generation process. In this paper, we propose an Observation-guided radiology Report Generation framework (**<span style="font-variant:small-caps;">ORGan</span>**). It first produces an observation plan and then feeds both the plan and radiographs for report generation, where an observation graph and a tree reasoning mechanism are adopted to precisely enrich the plan information by capturing the multi-formats of each observation. Experimental results demonstrate that our framework outperforms previous state-of-the-art methods regarding text quality and clinical efficacy.
 ![Alt text](figure/overview.png?raw=true "Title")
 
+## Update
+- Pretained checkpoint for the IU X-ray dataset is available at [Google Drive](https://drive.google.com/file/d/1BnnnwFf3TRba-frOMY8xQEz6YIFmCI-s/view?usp=sharing)
+
 ## Requirements
 - `torch==1.9.1`
 - `torchvision==0.10.1`
