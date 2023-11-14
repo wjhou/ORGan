@@ -31,7 +31,7 @@ python ./src/plan_extraction.py
 ```
 
 ## Step 1: Observation Planning
-There are two parameters required to run the code of planner: 
+There are two parameters required to run the code of the planner: 
 - `debug: whether debugging the code (0 for debugging and 1 for running)`
 - `checkpoint_name: indicating the location for the pre-trained visual model, mainly for IU Xray dataset`.
 ```
@@ -40,10 +40,10 @@ chmod +x ./script_plan/run_iu_xray.sh
 ```
 
 ## Step 2: Observation-guided Report Generation
-There are four parameters required to run the code of generator:
+There are four parameters required to run the code of the generator:
 - `debug: whether debugging the code (0 for debugging and 1 for running)`
-- `checkpoint_name: indicating the location for the pre-trained visual model, mainly for IU－Xray dataset, same as the setting of the planner`
-- `plan_model_name_or_path: indicating the location of trained planner (from Step 1)`
+- `checkpoint_name: indicating the location for the pre-trained visual model, mainly for the IU－Xray dataset, same as the setting of the planner`
+- `plan_model_name_or_path: indicating the location of the trained planner (from Step 1)`
 - `plan_eval_file: indicating the file name of generated plans for the validation set (from Step 1)`
 
 ```
