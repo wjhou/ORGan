@@ -1,7 +1,6 @@
 # <span style="font-variant:small-caps;">ORGAN</span>: Observation-Guided Radiology Report Generation via Tree Reasoning
 
-This repository is the implementation of [*ORGAN: Observation-Guided Radiology Report Generation via Tree Reasoning*](https://arxiv.org/abs/2306.06466).
-Before running the code, please install the prerequisite libraries, and follow Step 0, Step 1, and Step 2 to replicate the experiments.
+This repository is the implementation of [*ORGAN: Observation-Guided Radiology Report Generation via Tree Reasoning*](https://arxiv.org/abs/2306.06466). Before running the code, please install the prerequisite libraries, and follow Step 0, Step 1, and Step 2 to replicate the experiments.
 
 ## Update
 - [2023/11/15] Checkout our EMNLP'23 Findings paper about progression modeling: [RECAP: Towards Precise Radiology Report Generation via Dynamic Disease Progression Reasoning](https://github.com/wjhou/Recap)
