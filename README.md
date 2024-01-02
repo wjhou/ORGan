@@ -1,69 +1,44 @@
-# <span style="font-variant:small-caps;">ORGAN</span>: Observation-Guided Radiology Report Generation via Tree Reasoning
+# Academic Project Page Template
+This is an academic paper project page template.
 
-This repository is the implementation of [*ORGAN: Observation-Guided Radiology Report Generation via Tree Reasoning*](https://arxiv.org/abs/2306.06466). Before running the code, please install the prerequisite libraries, and follow Step 0, Step 1, and Step 2 to replicate the experiments.
 
-## Update
-- [2023/11/15] Checkout our EMNLP'23 Findings paper about progression modeling: [RECAP: Towards Precise Radiology Report Generation via Dynamic Disease Progression Reasoning](https://github.com/wjhou/Recap)
-- [2023/10/31] Pretained checkpoint for the IU X-ray dataset is available at [Google Drive](https://drive.google.com/file/d/1BnnnwFf3TRba-frOMY8xQEz6YIFmCI-s/view?usp=sharing)
+Example project pages built using this template are:
+- https://www.vision.huji.ac.il/deepsim/
+- https://www.vision.huji.ac.il/3d_ads/
+- https://www.vision.huji.ac.il/ssrl_ad/
+- https://www.vision.huji.ac.il/conffusion/
 
-## Overview
-This paper explores the task of radiology report generation, which aims at generating free-text descriptions for a set of radiographs. One significant challenge of this task is how to correctly maintain the consistency between the images and the lengthy report. Previous research explored solving this issue through planning-based methods, which generate reports only based on high-level plans. However, these plans usually only contain the major observations from the radiographs (e.g., lung opacity), lacking much necessary information, such as the observation characteristics and preliminary clinical diagnoses. To address this problem, the system should also take the image information into account together with the textual plan and perform stronger reasoning during the generation process. In this paper, we propose an Observation-guided radiology Report Generation framework (**<span style="font-variant:small-caps;">ORGan</span>**). It first produces an observation plan and then feeds both the plan and radiographs for report generation, where an observation graph and a tree reasoning mechanism are adopted to precisely enrich the plan information by capturing the multi-formats of each observation. Experimental results demonstrate that our framework outperforms previous state-of-the-art methods regarding text quality and clinical efficacy.
-![Alt text](figure/overview.png?raw=true "Title")
 
-## Requirements
-- `torch==1.9.1`
-- `torchvision==0.10.1`
-- `transformers==4.15.0`
+## Start using the template
+To start using the template click on `Use this Template`.
 
-## Step 0: Data Preparation and Observation Plan/Graph Extraction
-Please download the two datasets: [IU-Xray](https://openi.nlm.nih.gov/) and [MIMIC-CXR](https://physionet.org/content/mimic-cxr-jpg/2.0.0/). For observation preprocessing, we use [CheXbert](https://arxiv.org/pdf/2004.09167.pdf) to extract relevant observation information. Please follow the [instruction](https://github.com/stanfordmlgroup/CheXbert#prerequisites) to extract the observation tags.
+The template uses html for controlling the content and css for controlling the style. 
+To edit the websites contents edit the `index.html` file. It contains different HTML "building blocks", use whichever ones you need and comment out the rest.  
 
-### Step 0.1 Observation Graph Extraction
-```
-chmod +x ./src/graph_construction/run_iu_xray.sh
-./src/graph_construction/run_iu_xray.sh
-```
+**IMPORTANT!** Make sure to replace the `favicon.ico` under `static/images/` with one of your own, otherwise your favicon is going to be a dreambooth image of me.
 
-### Step 0.2 Observation Plan Extraction
-```
-cd ORGan
-python ./src/plan_extraction.py
-```
+## Components
+- Teaser video
+- Images Carousel
+- Youtube embedding
+- Video Carousel
+- PDF Poster
+- Bibtex citation
 
-## Step 1: Observation Planning
-There are two parameters required to run the code of the planner: 
-- `debug: whether debugging the code (0 for debugging and 1 for running)`
-- `checkpoint_name: indicating the location for the pre-trained visual model, mainly for IU Xray dataset`.
-```
-chmod +x ./script_plan/run_iu_xray.sh
-./script_plan/run_iu_xray.sh debug checkpoint_name
-```
+## Tips:
+- The `index.html` file contains comments instructing you what to replace, you should follow these comments.
+- The `meta` tags in the `index.html` file are used to provide metadata about your paper 
+(e.g. helping search engine index the website, showing a preview image when sharing the website, etc.)
+- The resolution of images and videos can usually be around 1920-2048, there rarely a need for better resolution that take longer to load. 
+- All the images and videos you use should be compressed to allow for fast loading of the website (and thus better indexing by search engines). For images, you can use [TinyPNG](https://tinypng.com), for videos you can need to find the tradeoff between size and quality.
+- When using large video files (larger than 10MB), it's better to use youtube for hosting the video as serving the video from the website can take time.
+- Using a tracker can help you analyze the traffic and see where users came from. [statcounter](https://statcounter.com) is a free, easy to use tracker that takes under 5 minutes to set up. 
+- This project page can also be made into a github pages website.
+- Replace the favicon to one of your choosing (the default one is of the Hebrew University). 
+- Suggestions, improvements and comments are welcome, simply open an issue or contact me. You can find my contact information at [https://pages.cs.huji.ac.il/eliahu-horwitz/](https://pages.cs.huji.ac.il/eliahu-horwitz/)
 
-## Step 2: Observation-guided Report Generation
-There are four parameters required to run the code of the generator:
-- `debug: whether debugging the code (0 for debugging and 1 for running)`
-- `checkpoint_name: indicating the location for the pre-trained visual model, mainly for the IU－Xray dataset, same as the setting of the planner`
-- `plan_model_name_or_path: indicating the location of the trained planner (from Step 1)`
-- `plan_eval_file: indicating the file name of generated plans for the validation set (from Step 1)`
+## Acknowledgments
+Parts of this project page were adopted from the [Nerfies](https://nerfies.github.io/) page.
 
-```
-chmod +x ./script/run_iu_xray.sh
-./script/run_iu_xray.sh debug checkpoint_name plan_model_name_or_path plan_eval_file
-```
-
-## Citation
-If you use the <span style="font-variant:small-caps;">ORGan</span>, please cite our paper:
-```bibtex
-@inproceedings{hou-etal-2023-organ,
-    title = "{ORGAN}: Observation-Guided Radiology Report Generation via Tree Reasoning",
-    author = "Hou, Wenjun  and Xu, Kaishuai  and Cheng, Yi  and Li, Wenjie  and Liu, Jiang",
-    booktitle = "Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
-    month = jul,
-    year = "2023",
-    address = "Toronto, Canada",
-    publisher = "Association for Computational Linguistics",
-    url = "https://aclanthology.org/2023.acl-long.451",
-    doi = "10.18653/v1/2023.acl-long.451",
-    pages = "8108--8122",
-}
-```
+## Website License
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
