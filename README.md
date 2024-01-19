@@ -29,7 +29,7 @@ Trained model weights on the two datasets are available at:
 
 ## Step 0: Data Preparation and Observation Plan/Graph Extraction
 
-Please download the two datasets: [IU-Xray](https://openi.nlm.nih.gov/) and [MIMIC-CXR](https://physionet.org/content/mimic-cxr-jpg/2.0.0/). For observation preprocessing, we use [CheXbert](https://arxiv.org/pdf/2004.09167.pdf) to extract relevant observation information. Please follow the [instruction](https://github.com/stanfordmlgroup/CheXbert#prerequisites) to extract the observation tags.
+Please download the two datasets: [IU X-ray](https://openi.nlm.nih.gov/) and [MIMIC-CXR](https://physionet.org/content/mimic-cxr-jpg/2.0.0/). For observation preprocessing, we use [CheXbert](https://arxiv.org/pdf/2004.09167.pdf) to extract relevant observation information. Please follow the [instruction](https://github.com/stanfordmlgroup/CheXbert#prerequisites) to extract the observation tags.
 
 ### Step 0.1 Observation Graph Extraction
 
@@ -50,7 +50,7 @@ python ./src/plan_extraction.py
 There are two parameters required to run the code of the planner:
 
 - `debug: whether debugging the code (0 for debugging and 1 for running)`
-- `checkpoint_name: indicating the location for the pre-trained visual model, mainly for IU Xray dataset`.
+- `checkpoint_name: indicating the location for the pre-trained visual model, mainly for IU X-ray dataset`.
 
 ```
 chmod +x ./script_plan/run_iu_xray.sh
