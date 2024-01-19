@@ -18,6 +18,15 @@ This paper explores the task of radiology report generation, which aims at gener
 - `torchvision==0.10.1`
 - `transformers==4.15.0`
 
+## Pretrained and Trained Model Weights
+
+Pretrained model weight for the IU X-ray dataset: [Google Drive](https://drive.google.com/file/d/1BnnnwFf3TRba-frOMY8xQEz6YIFmCI-s/view?usp=sharing)
+
+Trained model weights on the two datasets are available at:
+
+- IU X-ray: [Coming Soon]()
+- MIMIC-CXR: [Coming Soon]()
+
 ## Step 0: Data Preparation and Observation Plan/Graph Extraction
 
 Please download the two datasets: [IU-Xray](https://openi.nlm.nih.gov/) and [MIMIC-CXR](https://physionet.org/content/mimic-cxr-jpg/2.0.0/). For observation preprocessing, we use [CheXbert](https://arxiv.org/pdf/2004.09167.pdf) to extract relevant observation information. Please follow the [instruction](https://github.com/stanfordmlgroup/CheXbert#prerequisites) to extract the observation tags.
