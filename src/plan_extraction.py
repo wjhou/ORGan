@@ -188,7 +188,8 @@ def load_pmi_mentions(path, topk=5):
 
 
 if __name__ == "__main__":
-    mention_folder = "./data/mention/"
+    # mention_folder = "./data/mention/"
+    mention_folder = "./chexpert/phrases/mention"
     obs2mentions = load_mentions(mention_folder)
     pmi_obs2mentions = load_pmi_mentions(
         "./data/iu_xray_filter_pmi.json",
