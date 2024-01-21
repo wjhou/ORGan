@@ -1,0 +1,3 @@
+[submodule "chexpert"]
+	path = chexpert
+	url = https://github.com/stanfordmlgroup/chexpert-labeler
