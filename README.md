@@ -25,7 +25,7 @@ Pretrained model weight for the IU X-ray dataset: [Google Drive](https://drive.g
 Trained model weights on the two datasets are available at:
 
 - IU X-ray: [Coming Soon]()
-- MIMIC-CXR: [Coming Soon]()
+- MIMIC-CXR: [Google Drive](https://drive.google.com/drive/folders/1CnI2hkiyNOYeOEeBD5EAV79PqJFbjdlF?usp=sharing)
 
 ## Step 0: Data Preparation and Observation Plan/Graph Extraction
 
