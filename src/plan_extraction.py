@@ -33,7 +33,6 @@ def data_augmentation(report, pos):
 
 
 def func(dataset, obs2mentions, pmi_obs2mentions=None):
-    # stemmer = PorterStemmer()
     tag_path = "../CheXbert/src/data/%s/id2tag.csv" % dataset
     annotation = json.load(
         open("../%s/annotation.json" % dataset, "r", encoding="utf-8")
@@ -45,7 +44,6 @@ def func(dataset, obs2mentions, pmi_obs2mentions=None):
         else Tokenizer.clean_report_iu_xray
     )
     print(clean_fn)
-    # clean_fn = Tokenizer.clean_report_iu_xray
     split2id = defaultdict(set)
     for split in ["train", "val", "test"]:
         id2reports.update(
@@ -196,3 +194,4 @@ if __name__ == "__main__":
         topk=5,
     )
     func("iu_xray", obs2mentions, pmi_obs2mentions=pmi_obs2mentions)
+    func("mimic_cxr", obs2mentions)
