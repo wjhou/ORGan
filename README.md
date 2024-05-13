@@ -34,6 +34,7 @@ Please download the two datasets: [IU X-ray](https://openi.nlm.nih.gov/) and [MI
 ### Step 0.1 Observation Graph Extraction
 
 ```
+cd ORGan
 chmod +x ./src/graph_construction/run_iu_xray.sh
 ./src/graph_construction/run_iu_xray.sh
 ```
@@ -41,7 +42,6 @@ chmod +x ./src/graph_construction/run_iu_xray.sh
 ### Step 0.2 Observation Plan Extraction
 
 ```
-cd ORGan
 python ./src/plan_extraction.py
 ```
 
