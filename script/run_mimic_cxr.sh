@@ -15,11 +15,11 @@ num_beams=4
 slow_lr=5e-5
 fast_lr=1e-4
 topk=30
-beta=1
+beta=4
 trr=1
 outline_level=3
 log_level="info"
-output_dir="./tmp/iu_xray_oragn_epoch${num_train_epoch}_ngram${topk}_bs${per_device_train_batch}_tgt${max_tgt_length}_$seed"
+output_dir="./tmp/mimic_cxr_oragn_epoch${num_train_epoch}_ngram${topk}_bs${per_device_train_batch}_tgt${max_tgt_length}_$seed"
 chexpert_model_name_or_path=$2
 plan_model_name_or_path=$3
 plan_eval_file=$4
@@ -39,10 +39,10 @@ fi
 python3 -u ./src/run_ende.py \
     --plan_model_name_or_path $plan_model_name_or_path \
     --plan_eval_file $plan_eval_file \
-    --annotation_file "./data/iu_xray/annotation.json" \
-    --node_file "./data/iu_xray_filter_pmi.json" \
-    --image_path "./data/iu_xray/images/" \
-    --tag_path "./data/iu_xray_id2tag.csv" \
+    --annotation_file "./data/mimic_cxr/annotation.json" \
+    --node_file "./data/mimic_cxr_filter_pmi.json" \
+    --image_path "./data/mimic_cxr/images/" \
+    --tag_path "./data/mimic_cxr_id2tag.csv" \
     --do_train \
     --do_eval \
     --do_predict \

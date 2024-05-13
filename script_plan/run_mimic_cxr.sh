@@ -1,7 +1,7 @@
 #!/bin/sh
 export TOKENIZERS_PARALLELISM=true
 warmup_ratio=0.0
-max_tgt_length=64
+max_tgt_length=16
 num_train_epochs=15
 overwrite_output_dir=false
 evaluation_strategy=epoch
@@ -14,45 +14,35 @@ weight_decay=0.0
 num_beams=4
 slow_lr=5e-5
 fast_lr=1e-4
-topk=30
-beta=1
-trr=1
-outline_level=3
+alpha=0.5
 log_level="info"
-output_dir="./tmp/iu_xray_oragn_epoch${num_train_epoch}_ngram${topk}_bs${per_device_train_batch}_tgt${max_tgt_length}_$seed"
-chexpert_model_name_or_path=$2
-plan_model_name_or_path=$3
-plan_eval_file=$4
+output_dir="./tmp/mimic_cxr_planner_epoch${num_train_epochs}"
+checkpoint_name=$2
 
 if [ "$1" -ne 1 ];
 then
     echo "********** debug **********"
     echo "********** debug **********"
     echo "********** debug **********"
-    suffix="_debug"
     num_train_epochs=1
     output_dir="./tmp/bert_doc_baseline_debug"
     overwrite_output_dir=true
     debug_model=true
 fi
 
-python3 -u ./src/run_ende.py \
-    --plan_model_name_or_path $plan_model_name_or_path \
-    --plan_eval_file $plan_eval_file \
-    --annotation_file "./data/iu_xray/annotation.json" \
-    --node_file "./data/iu_xray_filter_pmi.json" \
-    --image_path "./data/iu_xray/images/" \
-    --tag_path "./data/iu_xray_id2tag.csv" \
+python3 -u ./src_plan/run_ende.py \
+    --chexpert_model_name_or_path $checkpoint_name \
+    --annotation_file "./data/mimic_cxr/annotation.json" \
+    --image_path "./data/mimic_cxr/images/" \
+    --id2tagpos_path "./data/mimic_cxr_id2tagpos.json" \
+    --tag_path "./data/mimic_cxr_id2tag.csv" \
     --do_train \
     --do_eval \
     --do_predict \
-    --trr $trr \
-    --topk $topk \
-    --outline_level $outline_level \
-    --beta $beta \
     --per_device_train_batch_size $per_device_train_batch_size \
     --per_device_eval_batch_size $per_device_eval_batch_size \
     --gradient_accumulation_steps $gradient_accumulation_steps \
+    --alpha $alpha \
     --max_tgt_length $max_tgt_length \
     --output_dir $output_dir \
     --warmup_ratio $warmup_ratio \
@@ -73,6 +63,6 @@ python3 -u ./src/run_ende.py \
     --overwrite_output_dir $overwrite_output_dir \
     --eval_on_gen \
     --greater_is_better true \
-    --metric_for_best_model eval_BLEU_4 \
+    --metric_for_best_model eval_micro_abn_prf \
     --debug_model $debug_model \
     --num_beams $num_beams

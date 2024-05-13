@@ -30,7 +30,6 @@ then
     debug_model=true
 fi
 
-export TOKENIZERS_PARALLELISM=true
 python3 -u ./src_plan/run_ende.py \
     --chexpert_model_name_or_path $checkpoint_name \
     --annotation_file "./data/iu_xray/annotation.json" \
