@@ -333,7 +333,8 @@ class VisualExtractor(nn.Module):
         self.visual_extractor = config.visual_extractor
         self.pretrained = config.visual_extractor_pretrained
 
-        if config.chexpert_model_name_or_path is not None:
+        try:
+            # if config.chexpert_model_name_or_path is not None:
             print("====================================================")
             print("====================================================")
             print(
@@ -350,7 +351,7 @@ class VisualExtractor(nn.Module):
                 self.visual_extractor,
             )(pretrained=False, num_classes=config.obs_num // 2)
             model.load_state_dict(chexpert_state_dict)
-        else:
+        except Exception as e:
             model = getattr(
                 models,
                 self.visual_extractor,

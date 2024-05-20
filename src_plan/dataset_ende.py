@@ -3,10 +3,11 @@ from typing import Tuple
 
 from torch.utils.data import Dataset
 from torchvision import transforms
-
+import torch
 from data_arguments import DataTrainingArguments
 from tokenizer import Tokenizer
 from tqdm import tqdm
+from PIL import Image
 
 
 def process_examples(examples):
@@ -100,11 +101,18 @@ class DatasetCustom(Dataset):
         )
         labels = labels + [self.text_tokenizer.eos_token_id]
 
+        image_paths = [
+            os.path.join(self.data_args.image_path, a)
+            for a in self.data[index]["image_path"]
+        ]
+        pixel_values = [Image.open(img_path).convert("RGB") for img_path in image_paths]
+        pixel_values = torch.stack(
+            [self.image_tokenizer(img) for img in pixel_values], dim=0
+        )
+
         item = {
-            "image_path": [
-                os.path.join(self.data_args.image_path, a)
-                for a in self.data[index]["image_path"]
-            ],
+            "image_path": image_paths,
+            "pixel_values": pixel_values,
             "labels": labels,
             "split": self.split,
         }

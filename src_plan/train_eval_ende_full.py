@@ -257,7 +257,6 @@ def eval_text(
         ) as f:
             dist_ref = defaultdict(int)
             dist_pre = defaultdict(int)
-            f.write(",".join(("Reference", "Prediction")) + "\n")
             for idx, rid, pre, ref in zip(
                 range(len(predictions)),
                 report_ids,
