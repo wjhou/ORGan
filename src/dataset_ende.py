@@ -12,6 +12,8 @@ from torchvision import transforms
 from data_arguments import DataTrainingArguments
 from tokenizer import Tokenizer
 from tqdm import tqdm
+from PIL import Image
+import torch
 
 
 def process_examples(examples, text_tokenizer: Tokenizer, max_tgt_length):
@@ -103,7 +105,6 @@ class DatasetCustom(Dataset):
         print("Number of N grams", len(self.node2id) + 2 * len(self.header))
         print("*********************")
         print("*********************")
-        # if self.split == "train":
         self.id2ngram = json.load(
             open(
                 "./data/%s_id2ngram.json" % self.dataset,
@@ -301,12 +302,18 @@ class DatasetCustom(Dataset):
             matrix[y, y] = -3
             matrix[y, x] = 3
 
+        image_paths = [
+            os.path.join(self.data_args.image_path, a)
+            for a in self.data[index]["image_path"]
+        ]
+        pixel_values = [Image.open(img_path).convert("RGB") for img_path in image_paths]
+        pixel_values = torch.stack(
+            [self.image_tokenizer(img) for img in pixel_values], dim=0
+        )
         # TODO
         item = {
-            "image_path": [
-                os.path.join(self.data_args.image_path, a)
-                for a in self.data[index]["image_path"]
-            ],
+            "image_path": image_paths,
+            "pixel_values": pixel_values,
             "labels": labels,
             "split": self.split,
             "node_ids": node_ids,
