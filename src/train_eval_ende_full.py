@@ -62,6 +62,8 @@ def eval_text(
             max_length = max_tgt_length
             min_length = 2
             model_inputs = {
+                "input_ids": torch.ones_like(batch["input_pixels"][:, :1, 0]).cuda()
+                * model.config.bos_token_id,
                 "input_pixels": batch["input_pixels"].cuda(),
                 "node_ids": batch["node_ids"].cuda(),
                 "node_mask": batch["node_mask"].cuda(),
